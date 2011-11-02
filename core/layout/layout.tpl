@@ -28,7 +28,7 @@
 	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
 	
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="core/js/libs/modernizr-1.7.min.js"></script>
+	<script src="core/js/libs/modernizr-2.0.6.min.js"></script>
 	
 	
 	{$pageMeta}
@@ -41,19 +41,76 @@
 	<div id="container">
 	
     	<header>
-    		<h1><a href="index.php">{$pageTitle}</a></h1>
-    		<!-- mss onder/in main zetten -->
+    	  	<h1><a href="index.php">{$pageTitle}</a></h1>
+        	
         	<nav>
-        		
+        	{option:oLogin}
+        	login form comes here
+        	{/option:oLogin}
+        	{option:oMenu}
+        		<a href="{$inboxLink}"><div></div>Inbox</a>
+        		<a href="{$dueActionsLink}"><div></div>Due Actions</a>
+        		<a href="{$nextActionsLink}"><div></div>Next Actions</a>
+        		<a href="{$projectsLink}"><div></div>Projects</a>
+        		<a href="{$contextsLink}"><div></div>Contexts</a>
+       			<a href="{$ticklerLink}"><div></div>Tickler</a>
+       			<a href="{$settingsLink}"><div></div>Settings</a>
+        	{/option:oMenu}
         	</nav>
+        	
     	</header>
+    	
+    	<div id="topToolbar">
+    		<form method="post" action="#">
+    		
+    			<dl class="clearfix">
+    				<dt><label for="taskName">Add task:</label></dt>
+    				<dd><input type="text" name="taskName" id="taskName" value="" /></dd>
+    				
+    				<dd class="addBtn"><input type="submit" name="submitBtn" id="submitBtn" value="Add" /></dd>
+    				
+    				<fieldset id="taskFormOption" class="">
+    				
+    					<dt><label for="startDate">Start date</label></dt>
+    					<dd><input type="date" name="startDate" id="startDate" value="" /></dd>
+    					
+    					<dt><label for="startTime">Start time</label></dt>
+    					<dd><input type="time" name="startTime" id="startTime" value="" /></dd>
+    					
+    					<dt><label for="dueDate">Due date</label></dt>
+    					<dd><input type="date" name="dueDate" id="dueDate" value="" /></dd>
+    					
+    					<dt><label for="stopTime">Stop time</label></dt>
+    					<dd><input type="time" name="stopTime" id="stopTime" value="" /></dd>
+    					
+    					<dt><label for="project">Project</label></dt>
+    					<dd>
+    						<select name="project" id="project">
+    							<option>project Zero</option>
+    							<option>create new project</option>
+    						</select>
+    					</dd>
+    					
+    					<dt><label for="context">Context</label></dt>
+    					<dd>
+    						<select name="context" id="context">
+    							<option>project Zero</option>
+    							<option>create new project</option>
+    						</select>
+    					</dd>
+    					
+    				</fieldset>
+    				
+    			</dl>
+    		</form>    		
+    		
+    	</div>
     	
     	
     	
     	<!-- pageContent -->
-    	<div id="main" role="main">
-    		{$pageContent}
-    		TESTcontent
+    	<div id="main" role="main" class="clearfix">
+  		{$pageContent}
     	</div>
     	
   </div> <!--! end of #container -->

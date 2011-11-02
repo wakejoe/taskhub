@@ -20,7 +20,7 @@ try {
 	
 	// This is the real deal here :-)
 	$website = new PlonkWebsite(
-		array('home', 'activiteiten', 'contact', 'fotos')
+		array( 'inbox', 'dueActions','nextActions', 'Projects', 'contexts','tickler','settings' )
 	);
 	
 } catch (Exception $e) { 	// Ooops, somehing went wrong ...
